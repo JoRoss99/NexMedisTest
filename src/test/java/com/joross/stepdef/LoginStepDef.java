@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class LoginStepDef {
     LoginPage loginPage;
@@ -31,7 +32,7 @@ public class LoginStepDef {
         driver = new ChromeDriver(options);
         loginPage = new LoginPage(driver);
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(200));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         loginPage.goToLoginPage();
     }
 

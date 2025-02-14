@@ -31,12 +31,15 @@ public class CheckoutPage {
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void fillinfo()  {
-        driver.findElement(inputFirstName).sendKeys("Jonathan");
-        driver.findElement(inputLastName).sendKeys("Ross");
-        driver.findElement(inputPostalCode).sendKeys("12345");
+    public void firstname(String firstname)  {
+        driver.findElement(inputFirstName).sendKeys(firstname);
     }
-
+    public void lastname(String lastname)  {
+        driver.findElement(inputLastName).sendKeys(lastname);
+    }
+    public void postalcode(String postalcode)  {
+        driver.findElement(inputPostalCode).sendKeys(postalcode);
+    }
 
     public void clickcontinue() {
         driver.findElement(continueButton).click();
@@ -80,6 +83,11 @@ public class CheckoutPage {
     public void complete() {
         WebElement element = driver.findElement(checkoutCompleteTitle);
         assertTrue(element.isDisplayed());
+    }
+    public void fillinfo2()  {
+        driver.findElement(inputFirstName).sendKeys("Jonathan");
+        driver.findElement(inputLastName).sendKeys("Ross");
+        driver.findElement(inputPostalCode).sendKeys("alpahebt");
     }
 
 

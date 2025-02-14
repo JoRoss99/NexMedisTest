@@ -54,11 +54,6 @@ public class CartStepDef  {
         cartPage.checkIfContainItems(items);
     }
 
-    @And("user is on detail product page {string}")
-    public void userIsOnDetailProductPage(String productName) throws InterruptedException {
-        detailProductPage = new DetailProductPage(driver);
-        detailProductPage.validateOnDetailProductPage(productName);
-    }
 //2
     @When("user click add to cart button with id {string}")
     public void userClickAddToCartButtonWithId(String idButton) throws InterruptedException {
@@ -70,5 +65,36 @@ public class CartStepDef  {
     public void userClickOnProductWith(String item) throws InterruptedException {
         homePage = new HomePage(driver);
         homePage.clickProductName(item);
+    }
+
+    @When("user chose product backpack")
+    public void userChoseProductBackpack() {
+        detailProductPage = new DetailProductPage(driver);
+        detailProductPage.choseproduct();
+    }
+
+    @And("user is on detail backpack product")
+    public void userIsOnDetailBackpackProduct() {
+        detailProductPage = new DetailProductPage(driver);
+        detailProductPage.validatebackpack();
+    }
+
+
+    @And("user click add to cart")
+    public void userClickAddToCart() {
+        detailProductPage = new DetailProductPage(driver);
+        detailProductPage.clickaddtocart();
+    }
+
+    @And("user go to cart page fom detail product")
+    public void userGoToCartPageFomDetailProduct() {
+        detailProductPage = new DetailProductPage(driver);
+        detailProductPage.gotochartdetail();
+    }
+
+    @Then("the chart page should contain choosen product")
+    public void theChartPageShouldContainChoosenProduct() {
+        detailProductPage = new DetailProductPage(driver);
+        detailProductPage.choosenproduct();
     }
 }

@@ -47,16 +47,42 @@ public class CheckoutStepDef {
         checkoutPage.complete();
     }
 
-    @And("user fill shipping information")
-    public void userFillShippingInformation() throws InterruptedException {
-        checkoutPage = new CheckoutPage(driver);
-        checkoutPage.fillinfo();
-    }
 
     @And("user click on finish button")
     public void userClickOnFinishButton() throws InterruptedException {
         checkoutPage = new CheckoutPage(driver);
         checkoutPage.finishbutton();
+    }
+
+    @And("user fill shipping information with string postal code")
+    public void userFillShippingInformationWithStringPostalCode() {
+    checkoutPage = new CheckoutPage(driver);
+    checkoutPage.fillinfo2();
+    }
+
+    @And("the continue button cannot be click")
+    public void theContinueButtonCannotBeClick() {
+        checkoutPage = new CheckoutPage(driver);
+        checkoutPage.clickcontinue();
+    }
+
+
+    @And("user fill first name with {string}")
+    public void userFillFirstNameWith(String firstname) throws InterruptedException {
+        checkoutPage = new CheckoutPage(driver);
+        checkoutPage.firstname(firstname);
+    }
+
+    @And("user fill last name with {string}")
+    public void userFillLastNameWith(String lastname) {
+        checkoutPage = new CheckoutPage(driver);
+        checkoutPage.lastname(lastname);
+    }
+
+    @And("user fill postal code with {string}")
+    public void userFillPostalCodeWith(String postalcode) {
+        checkoutPage = new CheckoutPage(driver);
+        checkoutPage.postalcode(postalcode);
     }
 }
 

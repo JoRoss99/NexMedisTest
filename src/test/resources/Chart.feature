@@ -18,5 +18,30 @@ Feature: Chart
       | Sauce Labs Bolt T-Shirt   |
       | Sauce Labs Fleece Jacket  |
 
+  @positive-test
+  Scenario: Adding items to the cart from homepage
+    Given user is on login page
+    And user input username with "standard_user"
+    And user input password with "secret_sauce"
+    And user click login button
+    And user is on homepage
+    When user chose product backpack
+    And user is on detail backpack product
+    And user click add to cart
+    And user go to cart page fom detail product
+
+  @positive-test
+  Scenario: Adding items to the cart from homepage
+    Given user is on login page
+    And user input username with "standard_user"
+    And user input password with "secret_sauce"
+    And user click login button
+    And user is on homepage
+   When user chose product backpack
+    And user is on detail backpack product
+    And user click add to cart
+    And user go to cart page fom detail product
+    Then the chart page should contain choosen product
+
 
 

@@ -58,8 +58,9 @@ public class LoginStepDef {
     }
 
     @And("User click lanjut button")
-    public void userClickLanjutButton() {
+    public void userClickLanjutButton() throws InterruptedException {
         loginPage.clicklanjutbutton();
+        Thread.sleep(1000);
     }
 
     @And("user input username with {string}")

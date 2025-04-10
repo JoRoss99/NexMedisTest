@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginPage {
     WebDriver driver;
 
-    By inputemail = By.xpath("/html/body/div/main/main/div[2]/div/form/div[1]/input");
+    By inputemail = By.xpath("//input[@id='id']");
     By lanjutbutton = By.xpath("//*[@id=\"app\"]/main/main/div[2]/div/form/button");
     By passwordInputText = By.xpath("//*[@id=\"password\"]");
     By loginButton =    By.xpath("//*[@id=\"app\"]/main/main/div[2]/div/form/button");

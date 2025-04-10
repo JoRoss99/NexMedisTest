@@ -15,10 +15,7 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;}
 
-    By productTitle = By.xpath("//*[@id=\"item_4_title_link\"]/div");
-    private By addToCartButton(String item) {
-        return By.xpath("//button[@id=\"" + item + "\"]");
-    }
+    By productTitle = By.xpath("//*[@id=\"app\"]/main/main/div[2]/div/div/div[1]/div/h1");
     By cartButton = By.xpath("//*[@id=\"shopping_cart_container\"]/a");
     private By productName(String item) {
         return By.xpath("//div[@class=\"inventory_item_name\" and text()=\"" + item + "\"]");
@@ -39,13 +36,7 @@ public class HomePage {
     public void validateOnHomePage() {
         WebElement productElement = driver.findElement(productTitle);
         assertTrue(productElement.isDisplayed());
-        assertEquals("Sauce Labs Backpack", productElement.getText());
     }
 //1
-    public void clickAddToCartButton(List<String> items) {
-        for (String item : items) {
-            driver.findElement(addToCartButton(item)).click();
-        }
     }
-}
 

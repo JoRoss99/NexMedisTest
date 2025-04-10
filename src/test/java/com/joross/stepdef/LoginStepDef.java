@@ -23,11 +23,9 @@ public class LoginStepDef {
     public void userIsOnLoginPage() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments(
-                "--no-sendbox",
+                "--no-sandbox",
                 "--disable-dev-shm-usage",
-                "--remote-allow-origins=*",
-                "--disable-gpu",
-                "--disable-software-rasterizer"
+                "--remote-allow-origins=*"
         );
         driver = new ChromeDriver(options);
         loginPage = new LoginPage(driver);
@@ -36,10 +34,6 @@ public class LoginStepDef {
         loginPage.goToLoginPage();
     }
 
-    @And("user input username with {string}")
-    public void userInputUsernameWith(String username) throws InterruptedException {
-        loginPage.inputUsername(username);
-    }
 
     @And("user input password with {string}")
     public void userInputPasswordWith(String password) throws InterruptedException {
@@ -56,9 +50,25 @@ public class LoginStepDef {
         loginPage.validateErrorAppear(errorMessage);
     }
 
+
+
+    @And("user input ID Organization with {string}")
+    public void userInputIDOrganizationWith(String IDOrganization) {
+        loginPage.inputIDOrganization(IDOrganization);
+    }
+
+    @And("User click lanjut button")
+    public void userClickLanjutButton() {
+        loginPage.clicklanjutbutton();
+    }
+
+    @And("user input username with {string}")
+    public void userInputUsernameWith(String email) throws InterruptedException {
+        loginPage.inputUsername(email);
+    }
+
     @Then("user is on homepage")
-    public void userIsOnHomepage()  throws InterruptedException{
-        homePage = new HomePage(driver);
-        homePage.validateOnHomePage();
+    public void userIsOnHomepage() {
+        loginPage.title();
     }
 }

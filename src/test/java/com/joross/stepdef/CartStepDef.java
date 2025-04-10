@@ -42,11 +42,6 @@ public class CartStepDef  {
         cartPage.clickcheckout();
     }
 //1
-    @When("user click add to cart button with following id:")
-    public void userClickAddToCartButtonWithFollowingId(List<String> items) throws InterruptedException {
-        homePage = new HomePage(driver);
-        homePage.clickAddToCartButton(items);
-    }
 
     @Then("cart should contain the following items name:")
     public void cartShouldContainTheFollowingItemsName(List<String> items) throws InterruptedException {

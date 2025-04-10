@@ -1,6 +1,5 @@
 package com.joross.stepdef;
 
-import com.joross.page.HomePage;
 import com.joross.page.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,11 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class LoginStepDef {
     LoginPage loginPage;
-    HomePage homePage;
     static WebDriver driver;
 
     @Given("user is on login page")
@@ -45,30 +42,46 @@ public class LoginStepDef {
         loginPage.clickLoginButton();
     }
 
-    @And("user see error message {string}")
-    public void userSeeErrorMessage(String errorMessage) {
-        loginPage.validateErrorAppear(errorMessage);
-    }
-
-
-
     @And("user input ID Organization with {string}")
     public void userInputIDOrganizationWith(String IDOrganization) {
         loginPage.inputIDOrganization(IDOrganization);
     }
 
     @And("User click lanjut button")
-    public void userClickLanjutButton() {
+    public void userClickLanjutButton() throws InterruptedException {
         loginPage.clicklanjutbutton();
-    }
-
-    @And("user input username with {string}")
-    public void userInputUsernameWith(String email) throws InterruptedException {
-        loginPage.inputUsername(email);
+        Thread.sleep(1000);
     }
 
     @Then("user is on homepage")
     public void userIsOnHomepage() {
         loginPage.title();
+    }
+
+    @And("user input email {string}")
+    public void userInputEmail(String email) {
+        loginPage.inputUsername(email);
+    }
+
+    @Then("Pop up message gagal")
+    public void popUpMessage() {
+        loginPage.errorpopup();
+    }
+
+    @Then("Pop up message gagal login")
+    public void popUpMessageGagalLogin() {
+        loginPage.gagallogin();
+    }
+
+
+
+    @And("message two is displayed with {string}")
+    public void messageTwoIsDisplayedWith(String Welcometwo) {
+        loginPage.messagetwo(Welcometwo);
+    }
+
+    @And("Logo nexmedis is displayed")
+    public void logoNexmedisIsDisplayed() {
+        loginPage.logoone();
     }
 }
